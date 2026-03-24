@@ -13,20 +13,43 @@
 #     Output: 12
 #     Explanation: GCD of  60 and 36 is 12.
 
+#...................................................Solution 1 ...................................................
+# def gcd(a,b):
 
-def gcd(a,b):
-
-    if a == 0 or b == 0:
-        return max(a,b)
+#     if a == 0 or b == 0:
+#         return max(a,b)
     
-    result = min(a,b)
+#     result = min(a,b)
 
-    while result > 0:
-        if a % result == 0 and b % result == 0:
-            break
-        result -= 1
+#     while result > 0:
+#         if a % result == 0 and b % result == 0:
+#             break
+#         result -= 1
 
-    return result
+#     return result
+
+# if __name__ == "__main__":
+#     print(gcd(60,36))
+
+
+#.............................................Solution 2.....................................................
+# import math
+
+# def find_gcd(a,b):
+
+#     return math.gcd(a,b)
+
+# if __name__ == "__main__":
+#     print(find_gcd(60,36))
+
+
+#..............................................Solution 3 (Much faster).............................
+
+def find_gcd(a,b):
+    if b == 0:
+        return a
+    
+    return find_gcd(b,a%b)
 
 if __name__ == "__main__":
-    print(gcd(60,36))
+    print(find_gcd(36,60))
