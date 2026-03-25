@@ -10,17 +10,46 @@
 #     Explanation: Divisors of 6 are 1, 2 and 3. Sum of divisors is 6.
 
 
+# ...............................................Solution 1 (Brute Force)........................................
+
+# def find_perfect_num(n):
+
+#     half = n//2
+#     sum = 1
+
+#     for i in range(2,half+1):
+#         if n % i == 0:
+#             sum += i
+
+#     if sum == n:
+#         return True
+#     else:
+#         return False
+    
+# if __name__ == "__main__":
+#     print(find_perfect_num(6))
+
+#..................................................Solution 2 (Optimized)............................................
 
 def find_perfect_num(n):
 
-    half = n//2
-    sum = 1
+    if n <= 1:
+        return False
+    
+    total = 1
+    i = 2
 
-    for i in range(2,half+1):
+    while i*i <= n:
+
         if n % i == 0:
-            sum += i
+            total += i
 
-    if sum == n:
+            if i != n//i:
+                total += n//i
+        
+        i+=1
+
+    if total == n:
         return True
     else:
         return False
