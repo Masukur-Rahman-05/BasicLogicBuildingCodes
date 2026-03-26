@@ -13,14 +13,27 @@
 
 # The given series represent triangular numbers which are sums of natural numbers.
 
-def find_nth_term(n):
+#................................................................Solution 1.................................................................
 
-    result = 0
+# def find_nth_term(n):
 
-    for i in range(1,n+1):
-        result = result + i
+#     result = 0
 
-    return result
+#     for i in range(1,n+1):
+#         result = result + i
 
-if __name__=="__main__":
-    print(find_nth_term(4))
+#     return result
+
+# if __name__=="__main__":
+#     print(find_nth_term(4))
+
+
+#.....................................................................Solution 2 .....................................................................
+
+
+def find_nth_num(n):
+
+    return n*(n+1)//2
+
+if __name__ == "__main__":
+    print(find_nth_num(4))
