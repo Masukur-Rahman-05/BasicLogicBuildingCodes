@@ -16,6 +16,32 @@
 #     Explanation: 1/5 + 3/15 = 2/5   
 
 #...............................................................Solution 1........................................................
+# import math
+
+# def find_add(first:list,second:list):
+
+#     numerator_first = first[0]
+#     denominator_first = first[1]
+
+#     numerator_second = second[0]
+#     denominator_second = second[1]
+
+#     denominator_result = math.lcm(denominator_first,denominator_second)
+
+#     numerator_result = (numerator_first * (denominator_result // denominator_first)) + (numerator_second * (denominator_result//denominator_second))
+
+#     gcd = math.gcd(numerator_result,denominator_result)
+
+
+#     return [numerator_result//gcd,denominator_result//gcd]
+
+
+# if __name__ == "__main__":
+#     print(find_add([1,2],[3,2]))
+
+
+#....................................................................Solution 2........................................................
+
 import math
 
 def find_add(first:list,second:list):
@@ -26,15 +52,12 @@ def find_add(first:list,second:list):
     numerator_second = second[0]
     denominator_second = second[1]
 
-    denominator_result = math.lcm(denominator_first,denominator_second)
+    numerator = (numerator_first * denominator_second) + (numerator_second * denominator_first)
+    denominator = denominator_first * denominator_second
 
-    numerator_result = (numerator_first * (denominator_result // denominator_first)) + (numerator_second * (denominator_result//denominator_second))
+    gcd = math.gcd(numerator,denominator)
 
-    gcd = math.gcd(numerator_result,denominator_result)
-
-
-    return [numerator_result//gcd,denominator_result//gcd]
-
+    return [numerator//gcd,denominator//gcd]
 
 if __name__ == "__main__":
     print(find_add([1,2],[3,2]))
