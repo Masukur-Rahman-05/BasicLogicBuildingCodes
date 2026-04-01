@@ -21,13 +21,31 @@
 
 #............................................solution 1..........................................................
 
-import math
+# import math
+
+# def combination(n,r):
+
+#     if r > n:
+#         return 0
+    
+#     return math.factorial(n) // (math.factorial(r) * math.factorial(n-r))
+
+# print(combination(5,2))
+
+#.....................................................Solution 2 (Optimized).......................................................
+
+#                           nCr​=r!n(n−1)(n−2)⋯(n−r+1)​/r!
 
 def combination(n,r):
-
     if r > n:
         return 0
     
-    return math.factorial(n) // (math.factorial(r) * math.factorial(n-r))
+    r = min(r,n-r)
 
-print(combination(5,2))
+    res = 1
+    for i in range(1,r+1):
+        res *= (n-i+1) // i
+
+    return res
+
+print(combination(5,3))

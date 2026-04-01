@@ -39,8 +39,8 @@
 #         return 0
     
 #     res = 1
-#     for i in range(r):
-#         res *= (n-i)
+#     for i in range(1,r+1):
+#         res *= (n-i + 1)
 #     return res
 
 # print(permutation(6,3))
@@ -53,8 +53,8 @@ def permutation(n,r):
     
     r = min(r,n-r)
     res = 1
-    for i in range(r):
-        res *= (n-i)
+    for i in range(1,r+1):
+        res *= (n-i+1)
     return res
 
 print(permutation(6,3))
